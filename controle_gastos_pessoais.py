@@ -33,3 +33,23 @@ def adicionar_gasto():
 
     # Adiciona o novo gasto na lista global (sem recriar a lista).
     gastos.append(novo_gasto)
+
+def listar_gastos():
+    """
+    Imprime todos os gastos registrados, formatados como:
+    - Descrição: R$ Valor (Categoria)
+    Se não houver nenhum gasto, avisa o usuário.
+    """
+    if len(gastos) == 0:
+        print('Ainda não foram adicionados gastos na lista')
+    else:
+        for gasto in gastos:
+            descricao = gasto['descricao']
+            valor = gasto['valor']
+            categoria = gasto['categoria']
+            print(f'- {descricao}: R$ {valor:.2f} ({categoria})')
+
+
+# --- Chamadas de teste (remover ou comentar depois que o menu estiver pronto) ---
+adicionar_gasto()
+listar_gastos()
